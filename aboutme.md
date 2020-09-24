@@ -18,4 +18,6 @@ What else do you need?
 
 ### My story
 
-To be honest, I'm having some trouble remembering right now, so why don't you just follow me on Github and it will answer **all** your questions. Let's go!
+I studied Psychology during my undergraduate education. I am currently pursuing a Master's Degree in Data Analytics and Program Evaluation. 
+
+Follow me on Github to learn more about me. Let's go!

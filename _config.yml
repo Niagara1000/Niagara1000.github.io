@@ -41,8 +41,8 @@ round-avatar: true
 social-network-links:
   email: "triton17@outlook.com"
   #facebook: "Archna"
-  #github: "https://www.github.com/Niagara1000/"
-  twitter: "Archana"
+  github: "https://www.github.com/Niagara1000/"
+  #twitter: "Archana"
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
@@ -88,7 +88,7 @@ feed_show_excerpt: true
 feed_show_tags: true
 
 # The keywords to associate with your website, for SEO purposes
-keywords: "data,ML,statistics,R"
+#keywords: "data,ML,statistics,R"
 
 # --- Colours / background image --- #
 

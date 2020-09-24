@@ -4,6 +4,7 @@ title: Sample blog post
 subtitle: Each post also has a subtitle
 gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
+last-updated: September 24, 2020
 tags: [test]
 comments: true
 ---

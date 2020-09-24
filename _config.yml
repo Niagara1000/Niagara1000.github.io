@@ -63,7 +63,7 @@ social-network-links:
 
 # If you want to show a link to an RSS in the footer, add the site description here.
 # If you don't want to show an RSS link, remove the following line.
-rss-description: This website is a virtual proof that I'm awesome
+rss-description: This is my awesome website, created using GitHub Pages.
 
 # --- General options --- #
 
@@ -97,6 +97,7 @@ feed_show_tags: true
 navbar-col: "#ebffff"
 navbar-text-col: "#8126ff"
 navbar-border-col: "#0099ff"
+navbar-children-col: "#000000"
 page-col: "#fff0fe"
 text-col: "#000000"
 link-col: "#fc9eff"

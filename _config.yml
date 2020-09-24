@@ -95,15 +95,15 @@ keywords: "data,ML,statistics,R"
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
 navbar-col: "#ebffff"
-navbar-text-col: "#fffbeb"
-navbar-border-col: "#d1ffad"
+navbar-text-col: "#bf00ff"
+navbar-border-col: "#bf00ff"
 page-col: "#ffebfe"
-text-col: "#ff8787"
+text-col: "#000000"
 link-col: "#fc9eff"
-hover-col: "#deffe2"
-footer-col: "#fff4a3"
+hover-col: "#ff8787"
+footer-col: "#fdffcf"
 footer-text-col: "#5d2496"
-footer-link-col: "#4a77ff"
+footer-link-col: "#bf00ff"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour

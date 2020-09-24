@@ -40,9 +40,11 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "triton17@outlook.com"
-  #facebook: "Archna"
+  facebook: "https://www.facebook.com"
   github: "https://www.github.com/Niagara1000/"
-  #twitter: "Archana"
+  twitter: "https://www.twitter.com"
+  linkedin: "https://www.linkedin.com"
+  instagram: "https://www.instagram.com"
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname

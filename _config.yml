@@ -6,10 +6,10 @@
 # --- Required options --- #
 
 # Name of website
-title: My Website
+title: Hi there, welcome to my website!
 
 # Your name to show in the footer
-author: Some Person
+author: The name is Niagara1000 (aka Archana)
 
 # --- List of links in the navigation bar --- #
 
@@ -39,10 +39,10 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
+  email: "triton17@outlook.com"
+  facebook: "Archna"
+  github: "https://www.github.com/Niagara1000/"
+  twitter: "Archana"
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
@@ -76,7 +76,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "Niagara1000.github.io"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -88,7 +88,7 @@ feed_show_excerpt: true
 feed_show_tags: true
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "data,ML,statistics,R"
 
 # --- Colours / background image --- #
 

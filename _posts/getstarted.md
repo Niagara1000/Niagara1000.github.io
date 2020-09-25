@@ -88,3 +88,33 @@ Note that this was the easy way to *create* your website, but it does come at a 
 
 
 
+
+
+
+<style>
+
+.gs-section-02 h2 { 
+     color: red }
+
+.gs-section-02 p {
+     font-size: 50px;
+}
+
+</style>
+
+
+
+
+
+
+<style>
+
+.gs-section-03 h3 { 
+     color: red }
+
+.gs-section-03 p {
+     font-size: 10px;
+}
+
+</style>
+

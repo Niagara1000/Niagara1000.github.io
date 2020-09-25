@@ -23,7 +23,7 @@ gosling:
 
 
 
-<figure> ![img src = "assets/img/ryan-v-ryan.jpg"](https://github.com/Niagara1000/Niagara1000.github.io/assets/img/ryan-v-ryan.jpg) </figure>
+![](img src = "https://niagara1000.github.io/assets/img/ryan-v-ryan.jpg")
 
 
 ## Lorem Ipsum

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me
+title: About Archana
 subtitle: Why you'd want to go on a date with me
 ---
 
@@ -10,11 +10,10 @@ My name is Archana. I have the following qualities:
 - I'm loyal to my family and friends.
 - I'm an artsy and crafty person.
 - Boba is my favorite companion on a hot summer day.
-- I love to workout.
-- Personal growth matters a lot to me.
+- I love to workout and sing!
 
 
-What else do you need?
+What else do you need? :smile:
 
 ### My story
 

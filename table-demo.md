@@ -21,10 +21,8 @@ gosling:
   - not ryan reynolds
 ---
 
+<figure>https://github.com/Niagara1000/Niagara1000.github.io/assets/img/ryan-v-ryan.jpg</figure>
 
-![(assets/img/ryan-v-ryan.jpg)]
-!(https://github.com/Niagara1000/Niagara1000.github.io/blob/master/assets/img/ryan-v-ryan.jpg?raw=true)
-![GitHub Logo](/images/logo.png)
 
 ## Lorem Ipsum
 

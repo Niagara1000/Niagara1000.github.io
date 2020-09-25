@@ -23,6 +23,7 @@ gosling:
 
 
 ![(assets/img/ryan-v-ryan.jpg)]
+![https://github.com/Niagara1000/Niagara1000.github.io/blob/master/assets/img/ryan-v-ryan.jpg?raw=true]
 
 ## Lorem Ipsum
 

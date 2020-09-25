@@ -22,8 +22,7 @@ gosling:
 ---
 
 
-[![](https://github.com/Niagara1000/Niagara1000.github.io/tree/master/assets/img/ryan-v-ryan.jpg)(https://github.com/Niagara1000/Niagara1000.github.io/tree/master/assets/img/ryan-v-ryan.jpg)
-
+https://raw.githubusercontent.com/DS4PS/barebones-jekyll/master/assets/img/ryan-v-ryan.jpg
 
 ## Lorem Ipsum
 

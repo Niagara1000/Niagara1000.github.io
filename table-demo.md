@@ -22,7 +22,7 @@ gosling:
 ---
 
 
-https://raw.githubusercontent.com/DS4PS/barebones-jekyll/master/assets/img/ryan-v-ryan.jpg
+![assets/img/ryan-v-ryan.jpg]
 
 ## Lorem Ipsum
 

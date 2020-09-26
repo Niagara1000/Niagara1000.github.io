@@ -80,7 +80,7 @@ Fork this project by clicking the __*Fork*__ button at the top right corner of t
 
 <div class="gs-section-02" markdown="1">
 
-## 2. Rename the project to `<yourusername>.github.io`
+### 2. Rename the project to `<yourusername>.github.io`
 
 
 
@@ -95,7 +95,7 @@ Click on __*Settings*__ at the top (the cog icon) and on that page you'll have a
 
 <div class="gs-section-03" markdown="1">
 
-# 3. Customize your website settings
+### 3. Customize your website settings
 
 
 
@@ -273,7 +273,7 @@ I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/),
 }
 
 .gs-section-03 h3 { 
-     color: green }
+     color: lightgreen }
 
 .gs-section-03 p {
      font-size: 10px;

@@ -7,7 +7,7 @@ Please note that all links will open in the current tab/window. `Right-click` (o
 
 ## My website
 
-* [Sentimenta.org](http://www.sentimenta.org) 
+* [Sentimenta.org](http://sentimenta.org/) 
 My current project focused on determining stock sentiments. It is currently a work-in-progress.
 
 ## Places I want to travel to

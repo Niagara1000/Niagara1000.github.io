@@ -260,11 +260,11 @@ I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/),
      font-size: 30px;
 }
 
-.gs-section-02 h4 { 
+.gs-section-02 h1 { 
      color: blue }
 
 .gs-section-02 p {
-     font-size: 20px;
+     font-size: 50px;
 }
 
 .gs-section-03 h5 { 

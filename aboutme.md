@@ -13,7 +13,7 @@ My name is Archana. I have the following qualities:
 - I love to workout and sing!
 
 
-What else do you need? :smile:
+What else do you need?
 
 ### My story
 

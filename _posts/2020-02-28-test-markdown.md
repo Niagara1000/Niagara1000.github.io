@@ -6,6 +6,7 @@ gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
 last-updated: September 24, 2020
 tags: [test]
+readtime: true
 comments: true
 ---
 

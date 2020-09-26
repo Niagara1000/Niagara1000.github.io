@@ -265,14 +265,14 @@ I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/),
      font-size: 30px;
 }
 
-.gs-section-02 h1 { 
+.gs-section-02 h3 { 
      color: blue }
 
 .gs-section-02 p {
      font-size: 50px;
 }
 
-.gs-section-03 h5 { 
+.gs-section-03 h3 { 
      color: green }
 
 .gs-section-03 p {

@@ -6,10 +6,10 @@
 # --- Required options --- #
 
 # Name of website
-title: Hi there, welcome to my website!
+title: Niagara1000 Home
 
 # Your name to show in the footer
-author: The name is Niagara1000 (aka Archana)
+author: Archana
 
 # --- List of links in the navigation bar --- #
 
@@ -68,7 +68,7 @@ social-network-links:
 
 # If you want to show a link to an RSS in the footer, add the site description here.
 # If you don't want to show an RSS link, remove the following line.
-rss-description: This is my awesome website, created using GitHub Pages.
+rss-description: This is my awesome website, created using GitHub.
 
 # --- General options --- #
 

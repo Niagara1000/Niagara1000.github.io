@@ -269,14 +269,14 @@ I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/),
      color: blue }
 
 .gs-section-02 p {
-     font-size: 50px;
+     font-size: 10px;
 }
 
 .gs-section-03 h3 { 
      color: lightgreen }
 
 .gs-section-03 p {
-     font-size: 10px;
+     font-size: 40px;
 }
 
 </style>

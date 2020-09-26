@@ -261,14 +261,14 @@ I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/),
 }
 
 .gs-section-02 h4 { 
-     color: red }
+     color: blue }
 
 .gs-section-02 p {
      font-size: 20px;
 }
 
 .gs-section-03 h5 { 
-     color: red }
+     color: green }
 
 .gs-section-03 p {
      font-size: 10px;

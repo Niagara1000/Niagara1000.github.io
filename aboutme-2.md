@@ -1,9 +1,9 @@
 ---
 layout: page
-title: About me
-subtitle: A list of my projects and some useful links
+title: More About Me
+subtitle: A list of my projects, interests, and some useful links
 ---
-Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
+###### Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
 
 ## My website
 

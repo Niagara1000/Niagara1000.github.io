@@ -17,6 +17,7 @@ navbar-links:
   About Me: "aboutme"
   Fun Facts: "aboutme-2"
   Code-Through: "lubridate_Oct8_v1.html"
+  Resume: "resume.html"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"

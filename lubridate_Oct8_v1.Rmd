@@ -1,0 +1,481 @@
+---
+title: "Lubridate_Oct8_v1"
+author: "Archana Ramamoorthy"
+date: "10/8/2020"
+output:
+    html_document:
+      theme: readable
+      highlight: tango
+      toc: true
+      toc_float: true
+      toc_collapsed: true
+      toc_depth: 3
+      self_contained: false
+      number_sections: false
+      css: textbook.css
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction to `lubricate()`
+
+- Dates are a special type of data. Just like strings and integers, dates are their own data type. There are special packages and functions that work with dates.
+- One such package is called `lubridate()`. In this tutorial, we will see why `lubridate()` is super helpful and important.
+- If extracting dates was a simple one-time task, we could use Regular Expressions to extract the dates and times in a given text or dataframe.
+- However, it gets tricky when dealing with numerous dates. 
+  - For example, RegEx cannot find specific dates and times in any timezone. 
+  - Also, RegEx cannot derive any **meaning** from the data that it extracts. It simply extracts and presents.
+    + There is no information about what day of the week or quarter of the year that date is in. 
+    + We also cannot tell how many days are in the month just by looking at it or even using RegEx.
+
+<br>
+<br>
+
+# `lubridate()` terms:
+
+- Dates are represented by the "Date" class. 
+  - By default, dates are stored in the format `Year-Month-Day`, where `Year` is a 4-digit year, `Month` is a 2-digit month, and `Day` is a 2-digit year.
+  - Dates are stored internally as the number of days since 1970-01-01
+  
+- Times are represented using "POSIXct" and "POSIXlt" classes.
+  -  Times are stored internally as the number of seconds since 1970-01-01
+  
+- The "POSIXct" class is useful when you want to store times as **characters**, such as in a dataframe.
+- The "POSIXlt" class is useful when you want to store times as a **list.** It also stores other information such as day of the month and week. (?)
+
+> [Helpful Video by Professor Peng, explaining the above terms](https://www.youtube.com/watch?v=opYexVgjwkE&feature=youtu.be)
+
+<br>
+<br>
+
+# **Let's get started!**
+
+#### First, we need to import necessary packages. After many revisions, it was clear that the following packages have to be installed and opened into RStudio.
+
+```{r}
+library(quanteda)
+library(purrr)
+library(tidyverse)
+library(lubridate)
+#library(nycflights13)
+```
+
+<br>
+<br>
+
+# **"Date" class**
+
+#### Dates are stored as objects of the "Date" class.
+
+```{r eval=FALSE}
+class("1970-01-01")            # "character"
+
+date1 <- as.Date("1970-01-01") # `as.date()`: base function to convert a date of type 'string' to 'Date'.
+
+class(date1)                   # "Date"
+date1                          # "1970-01-01" (looks same as before, but is of different data type.)
+
+```
+
+<br>
+<br>
+
+# `as.Date()`: Converts character dates to Date objects 
+
+#### The `format` argument of `as.Date()` tells R what format the inputted date is in to make sure it will be parsed properly.
+
+```{r}
+as.Date("1/10/12 9:04 ", format="%m/%d/%y")
+```
+
+This will output the same inputted date, but in the format: "YYYY-MM-DD".
+
+**Some useful extraction functions:**
+
+- `weekdays()`: returns day of week (RegEx would require us to 1. pass in all possible values of days (Monday,..Sunday and monday,..sunday and mon,..sun, and other possibilities) and then check if any one value is found in the date string (ex: "October 9th Friday"). This is possible only if a day is included in the text. If there is no day, then RegEx cannot extract it for us. This is when `lubridate()` will be useful because we only need to input the date. A day is not required. Super convenient!
+- `months()`  : returns month of year
+- `quarters()`: returns quarter of year
+- `year()`    : returns year of the date
+
+Note: `today()` returns value of the current date in the format YYYY-MM-DD
+
+
+**`lubridate()` does this very easily. It allows us to find weekday, month, and more within an inputted date.**
+
+```{r}
+weekdays(today()) # Friday
+months(today())   # October
+quarters(today()) # Q4 (Quarter 4)
+year(today())     # 2020
+```
+
+
+```{r}
+days_in_month(today())
+```
+
+#### Sys.time()
+
+- `Sys.time()` returns the current time as understood by the system that is running the code. For example, if the code is run in New York, then it will return the current time in EST time zone.
+- It is a "POSIXct" "POSIXt" time object.
+
+```{r}
+time_now <- Sys.time()  # `time_now` is NOT a list
+time_now                # stores a value: "2020-10-09 09:37:27.064 PDT"
+```
+
+We can try `time_now$sec` to get the exact second of the current minute that we are on. But, it won't work. It returns "Error in time_now\$sec : \$ operator is invalid for atomic vectors"
+
+```{r}
+time_now1 <- as.POSIXlt(time_now) 
+# now, time_now1 is a list.
+
+time_now1       # returns exact date and time in format "YYYY-MM-DD HH:MM:SS.ssss TZ"
+time_now1$sec   # returns exact second
+time_now1$wday  # returns day of the week as an integer
+```
+
+We can return all the components of a POSIXt object.
+
+```{r}
+unclass(time_now1)        # returns all contents of time_now1.
+                          # ex: mday = day of month
+
+class(unclass(time_now1)) # list - this makes it possible to index and retrieve required information!
+
+# for example:
+unclass(time_now1)[1]    # index 1: second
+                         # index 2: minute
+                         # index 3: hour
+                         # index 4: mday = day of month
+                         # etc.. maximum is index 11. 
+
+```
+
+# Why `lubridate()` is more efficient than RegEx to parse dates
+
+There are several contents of dates that we can extract with `lubridate()` that we cannot easily do with RegEx (or do at all!). 
+
+  - `lubridate()` makes it possible to extract fractional seconds like we did above. If airtraffic controllers need to monitor flights' paths to the details of milliseconds to prevent crashes, `lubridate()` can help.
+  - `lubridate()` can easily identify:
+    - a date's corresponding day of the year (ex: 300 = 300th day of the year)
+    - a date's corresponding day of the week (ex: 5 = 5th day of the week)
+    - if the date is observing day light savings time or not (`isdst` argument returns 1 if true)
+    - difference in duration between dates.
+    - Many of the above tasks are not possible or are tedious with RegEx.
+
+<br>
+<br>
+
+# **Conversion of Character/String format -> Date/Time objects using `strptime`. **
+
+#### `strptime` converts the date string to a POSIXlt / POSIXt object. 
+
+**Note: This is different from "Date" object.**
+
+```{r}
+datestring <- c("January 15, 2012 10:40", "September 20, 2014 11:08")
+strptime_1 <- strptime(x= datestring,
+                       format = "%B %d, %Y %H:%M")
+strptime_1
+class(strptime_1)       # "POSIXlt" "POSIXt"
+                        # run `?strptime` for details
+```
+
+- Once we have converted characters into dates, we can do important calculations on them. can add, substract, compare dates.
+- One thing to note is that "Date" and "POSIXlt" objects can't be mixed. For example, it is not possible to subtract a "Date" object from a "POSIXlt" object.
+
+<br>
+<br>
+
+# **Operations on Dates and Times**
+
+#### `as.date` converts a string to "Date" object.
+
+```{r}
+class("2012-09-24")             # character
+
+date_1 <- strptime(x = "09 Jan 2012 11:20:44", 
+                   format = "%d %b %Y %H:%M:%S")
+date_1                          # "2012-01-09 11:20:44 PST"
+class(date_1)                   # "POSIXlt" "POSIXt" 
+
+
+date_2 <- as.Date("2012-09-24")
+date_2                          # "2012-09-24"
+class(date_2)                   # Date
+
+date_2 <- as.POSIXlt(date_2)
+date_2                          # "2012-09-24 UTC"
+class(date_2)                   # "POSIXlt" "POSIXt" 
+
+date_2 - date_1 # Time difference of 258.1939 days
+date_1 - date_2 # Time difference of -258.1939 days
+date_1 > date_2 # FALSE since date_1 comes before date_2. So date_1 < date_2.
+date_1 < date_2 # TRUE since date_2 comes after date_1. So, date_1 < date_2.
+
+```
+
+#### Date and Time operators also keep track of:
+
+  * leap years
+  * leap seconds
+  * daylight savings 
+  * and time zones!
+
+We can perform calculations on "Date" objects and "POSIXlt" / "POSIXct" objects.
+
+1. Leap years
+
+```{r}
+leapYearX <- as.Date("2020-02-14")
+leapYearY <- as.Date("2020-03-01")
+leapYearY - leapYearX # Time difference of 16 days
+```
+
+Note: If the years were 2019 instead of 2020, the result is "Time difference of 15 days".
+
+2. Time difference at different time zones (examples include "GMT" and "America/Los Angeles").
+  - We can easily find the differences between dates and times using `lubridate()`.
+  - We just need to make sure that the objects we are comparing are of the same data types.
+  
+```{r}
+halloweenX <- as.POSIXct(x = "2019-10-31 1:00:00") # by default, it uses the current timezone (in this case, PST)
+halloweenY <- as.POSIXct(x = "2019-10-31 6:00:00",
+                         tz = "GMT")
+# the magnitude of the difference is only 2, 
+# since GMT is 7 hours ahead of PST during 
+# the Day Light Savings time. 
+# So, halloweenX in GMT would be 8:00:00 GMT 
+# instead of 1:00:00 PST.
+# If both were in same timezone, then it would return 5.
+
+halloweenY - halloweenX      # Time difference of -2 hours
+halloweenX - halloweenY      # Time difference of 2 hours
+```
+
+We could do some calculations like these without lubricate().
+
+  - `(2019-08-09) - (2019-08-02)`                   : returns -7 without units.
+  - `(2019-08-09 11:02:33) - (2019-08-02 02:19:33)` :  returns an error
+  - `lubricate()` enables us to perform these calculations easily.
+
+```{r}
+halloweenA <- as.POSIXct(x = "2019-10-31 6:00:00",
+                         tz = "GMT")
+class(halloweenA) # "POSIXct" "POSIXt" 
+
+halloweenB <- as.POSIXct(x = "2019-10-31 1:00:00",
+                         tz = "America/Los_Angeles")
+
+halloweenA - halloweenB      # Time difference of -2 hours
+halloweenB - halloweenA      # Time difference of 2 hours
+
+halloweenC <- as.POSIXct(x = "2019-10-31 6:00:51")
+
+```
+
+#### We can also get second, day, month, week, day of the week, day of the year of POSIXct and POSIXlt objects.
+
+```{r}
+second(x = halloweenC) # 51
+day(halloweenC)        # 31
+month(halloweenC)      # 10
+month(halloweenC, 
+      label = TRUE)    # Oct (returned text form of 10)
+wday(halloweenC)       # 5  - which means Thursday. 1 means Sunday.
+wday(halloweenC, 
+     label = TRUE)     # Thu (returned text form of 5)  
+yday(halloweenC)       # 304 means 304th day of the year 2019
+week(halloweenC)       # 44 means 44th week of year
+
+```
+
+#### We can also express the current time (or a POSIXlt/POSIXct time object) in another time zone
+```{r}
+with_tz(time = Sys.time(),
+        tzone = "America/New_York" )
+# run `??tzone` for documentation
+
+```
+
+# `parse_date_time()` parses date
+
+`parse_date_time()` makes its best guess as to what the time is and outputs in the standard ISO format ("YYYY-mm-dd HH:MM:SS UTC" time).
+
+  - `orders =` argument enables us to list all possible date time formats for R to parse all sorts of dates and times correctly.
+
+```{r}
+lubridate::parse_date_time(x = c("2020-01-02 11:00:02", "19-02-2011", "02-19-2003", "931406", "091406", "20112003", "Oct 1, 2009", "Nov 19 2012", "Monday", "Wed"), 
+                           orders = c("dmy", "dym", 
+                                      "ymd", "ydm",
+                                      "mdy", "myd",
+                                      "%m%d%Y", "%Y%m%d %H%M%S",
+                                      "%b", "%a", "%T", "%d%b%Y"))
+
+orders = c("dmy", "dym", "ymd", "ydm","mdy", "myd", "%m%d%Y", "%Y%m%d %H%M%S", "%b", "%a", "%T", "%d%b%Y")
+```
+
+We can extract month, year, etc using the right functions as below:
+```{r}
+bdt1 <- data.frame(Variable = c("Person","BirthDate/Time"), 
+           Person1 = c("paul", "090594559103"),
+           Person2 = c("carrie", "2009-05-10"),
+           Person3 = c("susan", "08/06/04"))
+bdt1
+
+```
+
+```{r}
+bdt1$Variable == "BirthDate/Time"
+times1 <- nycflights13::flights$time_hour[15000:15010]
+month(times1)
+year(times1)
+wday(times1)
+yday(times1)
+```
+
+and then we can add those values to a new column in a dataframe, that can be created and named as we wish. this will help with better analysis of:
+
+  - when there is more likely to be more traffic
+  - what times during the day are shoppers more likely to shop in store vs. online
+  - what times am I more likely to win a lottery ticket?
+  - what months are safer to drive to a certain city?
+  - and much more!
+
+
+
+
+
+
+
+
+
+
+
+Basically, character strings of dates can be converted to Date/Time classes using the `strptime`, `as.Date`, `as.POSIXlt`, or `asPOSIXct` functions.
+
+Side note: Plots also change their formatting when using Date/Time objects for graphing. Compare with regular text!
+
+```{r}
+# To find the current time zone in your location?
+x = Sys.timezone()
+x
+```
+
+# Intervals 
+
+#### **Intervals are separate objects in R.**
+
+ - Knowing how to work with intervals is important when studying weather patterns and how they change over seasons from year to year.
+ - It is also important when considering which events are co-occuring, so that there will not be overlaps for important events, such as meetings or consecutive flights.
+
+```{r}
+interval(halloweenA, halloweenB)
+int.halloween.1 <- halloweenB %--% halloweenA
+int.halloween.2 <- halloweenY %--% halloweenX #automatically converts to GMT for both!
+class(halloweenA %--% halloweenB) # interval
+length(halloweenA %--% halloweenB) # 1
+lubridate::as.difftime(halloweenY %--% halloweenX)
+
+```
+
+#### We can also perform functions on intervals!
+
+* such as "do 2 intervals overlap?"
+
+```{r}
+int_overlaps(int.halloween.1, int.halloween.2)
+```
+
+* can also retrieve start and end times of intervals
+```{r}
+int_start(int = int.halloween.1)
+#"2019-10-31 01:00:00 PDT"
+int_end(int = int.halloween.2)
+#"2019-10-31 08:00:00 GMT"
+```
+
+```{r}
+christmas2018 <- as.POSIXct(x = "2018-12-25 6:00:00 PDT")
+# automatically changes to PST!
+
+christmas2019 <- as.POSIXct(x = "2019-12-25 8:00:00 America/Los Angeles") 
+# automatically changes to PST!
+
+# creating a Christmas interval object
+interval.christmas <- interval(christmas2018, christmas2019)
+interval.christmas # 2018-12-25 06:00:00 PST--2019-12-25 08:00:00 PST
+```
+
+We can find how many seconds are in "X" number of minutes / hours / days / weeks / months / years.
+```{r}
+ddays(1) # "86400s (~1 days)"
+dweeks(1) # "604800s (~1 weeks)"
+dmonths(1) # "2629800s (~4.35 weeks)" (months are too variable. days can be 30, 31, 28 or 29. this is why measures like days and weeks also are only approximate measures.)
+dyears(1) # "31557600s (~1 years)"
+# interval.christmas / ddays(1) #  365.0833
+
+```
+
+Moreover, the package makes it easier to split a column that contains both a date and time in a dataframe into separate columns for day, month, second, etc. 
+  - If street traffic analysts are evaluating the traffic lights and the corresponding number of accidents in the area, they would want to get details even up to a second to check if they need to increase the number of seconds that a red light is displayed or decrease the number of time a green light is displayed.
+  - If a person is tracking their mood throughout a day, they would probably want hourly data.
+
+
+```{r}
+class("2012-09-24")             # character
+
+date_1 <- strptime(x = "09 Jan 2012 11:20:44", 
+                   format = "%d %b %Y %H:%M:%S")
+date_1                          # "2012-01-09 11:20:44 PST"
+class(date_1)                   # "POSIXlt" "POSIXt" 
+date_1
+
+date_2 <- as.Date("2012-09-24")
+date_2                          # "2012-09-24"
+class(date_2)                   # Date
+
+```
+
+
+<br>
+<br>
+
+# Potential Real Life Applications of `lubridate()`:
+
+1. Use of `lubridate()`'s timezone functionalities in airlines booking websites
+  * customers can the times at which they will leave from departure and arrive at destination in any time zone that they wish. 
+    * for example, if a passenger wants to travel from NYC to Auckland, `lubridate()` will enable the flight booking program to enable the passenger to see when they will arrive at Auckland at both the Eastern Time Zone (EST) as well as Auckland Time Zone. This can help the passengers decide how they will spend time at the layover airport, or even decide when to sleep on the airplane so that they can minimize jet lag!
+
+2. Use of `lubridate()`'s interval functionalities in calendar apps
+  * Users can be warned of overlapping events with the help of the `int_overlaps()` functions.
+    * For example, if a user wants to schedule a meeting with a client at 2:30pm, but a meeting from 1:30pm rolls over till 3:30pm, they would want the app to warn them before they schedule another meeting for 2:30pm.
+    
+    
+# Final Words
+
+Overall, I find `lubridate()` to be very useful and applicable to real-life situations. I find dates, especially when presented as strings, to be really hard to work with. Regular expressions are great to extract dates, but when it comes to details of dates, `lubridate()` can be a better choice! From working with timezones and durations to simply extracting months out of a list of dates, `lubridate()` can save the day!
+
+
+
+
+# Credits
+
+I extensively researched about `lubridate()` from the following sources. I highly recommend reading them, because I learned so much that I could not have easily found in the RDocumentation.
+
+Sources List
+
+1. https://www.fabianheld.com/lubridate/ 
+2. https://www.youtube.com/watch?v=8HENCYXwZoU (Thank you Prof. Peng!)
+3. https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf
+
+
+Thank you to Dr. Lecy who gave me an opportunity to write about an awesome package!
+
+
+
+

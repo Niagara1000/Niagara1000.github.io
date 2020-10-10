@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Archana Ramamoorthy" />
+
+
+<title>Lubridate_Oct8_v1</title>
+
+<script src="lubridate_Oct8_v1_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lubridate_Oct8_v1_files/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="lubridate_Oct8_v1_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lubridate_Oct8_v1_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lubridate_Oct8_v1_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="lubridate_Oct8_v1_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="lubridate_Oct8_v1_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="lubridate_Oct8_v1_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="lubridate_Oct8_v1_files/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      a.sourceLine { display: inline-block; line-height: 1.25; }
+  a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+  a.sourceLine:empty { height: 1.2em; }
+  .sourceCode { overflow: visible; }
+  code.sourceCode { white-space: pre; position: relative; }
+  div.sourceCode { margin: 1em 0; }
+  pre.sourceCode { margin: 0; }
+  @media screen {
+  div.sourceCode { overflow: auto; }
+  }
+  @media print {
+  code.sourceCode { white-space: pre-wrap; }
+  a.sourceLine { text-indent: -1em; padding-left: 1em; }
+  }
+  pre.numberSource a.sourceLine
+    { position: relative; left: -4em; }
+  pre.numberSource a.sourceLine::before
+    { content: attr(data-line-number);
+      position: relative; left: -1em; text-align: right; vertical-align: baseline;
+      border: none; pointer-events: all; display: inline-block;
+      -webkit-touch-callout: none; -webkit-user-select: none;
+      -khtml-user-select: none; -moz-user-select: none;
+      -ms-user-select: none; user-select: none;
+      padding: 0 4px; width: 4em;
+      color: #aaaaaa;
+    }
+  pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+  div.sourceCode
+    { background-color: #f8f8f8; }
+  @media screen {
+  a.sourceLine::before { text-decoration: underline; }
+  }
+  code span.al { color: #ef2929; } /* Alert */
+  code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+  code span.at { color: #c4a000; } /* Attribute */
+  code span.bn { color: #0000cf; } /* BaseN */
+  code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+  code span.ch { color: #4e9a06; } /* Char */
+  code span.cn { color: #000000; } /* Constant */
+  code span.co { color: #8f5902; font-style: italic; } /* Comment */
+  code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+  code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+  code span.dt { color: #204a87; } /* DataType */
+  code span.dv { color: #0000cf; } /* DecVal */
+  code span.er { color: #a40000; font-weight: bold; } /* Error */
+  code span.ex { } /* Extension */
+  code span.fl { color: #0000cf; } /* Float */
+  code span.fu { color: #000000; } /* Function */
+  code span.im { } /* Import */
+  code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+  code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+  code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+  code span.ot { color: #8f5902; } /* Other */
+  code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+  code span.sc { color: #000000; } /* SpecialChar */
+  code span.ss { color: #4e9a06; } /* SpecialString */
+  code span.st { color: #4e9a06; } /* String */
+  code span.va { color: #000000; } /* Variable */
+  code span.vs { color: #4e9a06; } /* VerbatimString */
+  code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="textbook.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Lubridate_Oct8_v1</h1>
+<h4 class="author">Archana Ramamoorthy</h4>
+<h4 class="date">10/8/2020</h4>
+
+</div>
+
+
+<div id="introduction-to-lubricate" class="section level1">
+<h1>Introduction to <code>lubricate()</code></h1>
+<ul>
+<li>Dates are a special type of data. Just like strings and integers, dates are their own data type. There are special packages and functions that work with dates.</li>
+<li>One such package is called <code>lubridate()</code>. In this tutorial, we will see why <code>lubridate()</code> is super helpful and important.</li>
+<li>If extracting dates was a simple one-time task, we could use Regular Expressions to extract the dates and times in a given text or dataframe.</li>
+<li>However, it gets tricky when dealing with numerous dates.
+<ul>
+<li>For example, RegEx cannot find specific dates and times in any timezone.</li>
+<li>Also, RegEx cannot derive any <strong>meaning</strong> from the data that it extracts. It simply extracts and presents.
+<ul>
+<li>There is no information about what day of the week or quarter of the year that date is in.</li>
+<li>We also cannot tell how many days are in the month just by looking at it or even using RegEx.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br> <br></p>
+</div>
+<div id="lubridate-terms" class="section level1">
+<h1><code>lubridate()</code> terms:</h1>
+<ul>
+<li>Dates are represented by the “Date” class.
+<ul>
+<li>By default, dates are stored in the format <code>Year-Month-Day</code>, where <code>Year</code> is a 4-digit year, <code>Month</code> is a 2-digit month, and <code>Day</code> is a 2-digit year.</li>
+<li>Dates are stored internally as the number of days since 1970-01-01</li>
+</ul></li>
+<li>Times are represented using “POSIXct” and “POSIXlt” classes.
+<ul>
+<li>Times are stored internally as the number of seconds since 1970-01-01</li>
+</ul></li>
+<li>The “POSIXct” class is useful when you want to store times as <strong>characters</strong>, such as in a dataframe.</li>
+<li>The “POSIXlt” class is useful when you want to store times as a <strong>list.</strong> It also stores other information such as day of the month and week. (?)</li>
+</ul>
+<blockquote>
+<p><a href="https://www.youtube.com/watch?v=opYexVgjwkE&amp;feature=youtu.be">Helpful Video by Professor Peng, explaining the above terms</a></p>
+</blockquote>
+<p><br> <br></p>
+</div>
+<div id="lets-get-started" class="section level1">
+<h1><strong>Let’s get started!</strong></h1>
+<div id="first-we-need-to-import-necessary-packages.-after-many-revisions-it-was-clear-that-the-following-packages-have-to-be-installed-and-opened-into-rstudio." class="section level4">
+<h4>First, we need to import necessary packages. After many revisions, it was clear that the following packages have to be installed and opened into RStudio.</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(quanteda)</a></code></pre></div>
+<pre><code>## Package version: 2.1.1</code></pre>
+<pre><code>## Parallel computing: 2 of 4 threads used.</code></pre>
+<pre><code>## See https://quanteda.io for tutorials and examples.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;quanteda&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     View</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(purrr)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## ── Attaching packages ───────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ dplyr   1.0.2
+## ✓ tibble  3.0.3     ✓ stringr 1.4.0
+## ✓ tidyr   1.0.2     ✓ forcats 0.5.0
+## ✓ readr   1.3.1</code></pre>
+<pre><code>## ── Conflicts ──────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">library</span>(lubridate)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">#library(nycflights13)</span></a></code></pre></div>
+<p><br> <br></p>
+</div>
+</div>
+<div id="date-class" class="section level1">
+<h1><strong>“Date” class</strong></h1>
+<div id="dates-are-stored-as-objects-of-the-date-class." class="section level4">
+<h4>Dates are stored as objects of the “Date” class.</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">class</span>(<span class="st">&quot;1970-01-01&quot;</span>)            <span class="co"># &quot;character&quot;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">date1 &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;1970-01-01&quot;</span>) <span class="co"># `as.date()`: base function to convert a date of type &#39;string&#39; to &#39;Date&#39;.</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="kw">class</span>(date1)                   <span class="co"># &quot;Date&quot;</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">date1                          <span class="co"># &quot;1970-01-01&quot; (looks same as before, but is of different data type.)</span></a></code></pre></div>
+<p><br> <br></p>
+</div>
+</div>
+<div id="as.date-converts-character-dates-to-date-objects" class="section level1">
+<h1><code>as.Date()</code>: Converts character dates to Date objects</h1>
+<div id="the-format-argument-of-as.date-tells-r-what-format-the-inputted-date-is-in-to-make-sure-it-will-be-parsed-properly." class="section level4">
+<h4>The <code>format</code> argument of <code>as.Date()</code> tells R what format the inputted date is in to make sure it will be parsed properly.</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">as.Date</span>(<span class="st">&quot;1/10/12 9:04 &quot;</span>, <span class="dt">format=</span><span class="st">&quot;%m/%d/%y&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2012-01-10&quot;</code></pre>
+<p>This will output the same inputted date, but in the format: “YYYY-MM-DD”.</p>
+<p><strong>Some useful extraction functions:</strong></p>
+<ul>
+<li><code>weekdays()</code>: returns day of week (RegEx would require us to 1. pass in all possible values of days (Monday,..Sunday and monday,..sunday and mon,..sun, and other possibilities) and then check if any one value is found in the date string (ex: “October 9th Friday”). This is possible only if a day is included in the text. If there is no day, then RegEx cannot extract it for us. This is when <code>lubridate()</code> will be useful because we only need to input the date. A day is not required. Super convenient!</li>
+<li><code>months()</code> : returns month of year</li>
+<li><code>quarters()</code>: returns quarter of year</li>
+<li><code>year()</code> : returns year of the date</li>
+</ul>
+<p>Note: <code>today()</code> returns value of the current date in the format YYYY-MM-DD</p>
+<p><strong><code>lubridate()</code> does this very easily. It allows us to find weekday, month, and more within an inputted date.</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">weekdays</span>(<span class="kw">today</span>()) <span class="co"># Friday</span></a></code></pre></div>
+<pre><code>## [1] &quot;Friday&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">months</span>(<span class="kw">today</span>())   <span class="co"># October</span></a></code></pre></div>
+<pre><code>## [1] &quot;October&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">quarters</span>(<span class="kw">today</span>()) <span class="co"># Q4 (Quarter 4)</span></a></code></pre></div>
+<pre><code>## [1] &quot;Q4&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">year</span>(<span class="kw">today</span>())     <span class="co"># 2020</span></a></code></pre></div>
+<pre><code>## [1] 2020</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">days_in_month</span>(<span class="kw">today</span>())</a></code></pre></div>
+<pre><code>## Oct 
+##  31</code></pre>
+</div>
+<div id="sys.time" class="section level4">
+<h4>Sys.time()</h4>
+<ul>
+<li><code>Sys.time()</code> returns the current time as understood by the system that is running the code. For example, if the code is run in New York, then it will return the current time in EST time zone.</li>
+<li>It is a “POSIXct” “POSIXt” time object.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">time_now &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()  <span class="co"># `time_now` is NOT a list</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">time_now                <span class="co"># stores a value: &quot;2020-10-09 09:37:27.064 PDT&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2020-10-09 20:29:53 PDT&quot;</code></pre>
+<p>We can try <code>time_now$sec</code> to get the exact second of the current minute that we are on. But, it won’t work. It returns “Error in time_now$sec : $ operator is invalid for atomic vectors”</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">time_now1 &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(time_now) </a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co"># now, time_now1 is a list.</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">time_now1       <span class="co"># returns exact date and time in format &quot;YYYY-MM-DD HH:MM:SS.ssss TZ&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2020-10-09 20:29:53 PDT&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">time_now1<span class="op">$</span>sec   <span class="co"># returns exact second</span></a></code></pre></div>
+<pre><code>## [1] 53.12307</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">time_now1<span class="op">$</span>wday  <span class="co"># returns day of the week as an integer</span></a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>We can return all the components of a POSIXt object.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">unclass</span>(time_now1)        <span class="co"># returns all contents of time_now1.</span></a></code></pre></div>
+<pre><code>## $sec
+## [1] 53.12307
+## 
+## $min
+## [1] 29
+## 
+## $hour
+## [1] 20
+## 
+## $mday
+## [1] 9
+## 
+## $mon
+## [1] 9
+## 
+## $year
+## [1] 120
+## 
+## $wday
+## [1] 5
+## 
+## $yday
+## [1] 282
+## 
+## $isdst
+## [1] 1
+## 
+## $zone
+## [1] &quot;PDT&quot;
+## 
+## $gmtoff
+## [1] -25200
+## 
+## attr(,&quot;tzone&quot;)
+## [1] &quot;&quot;    &quot;PST&quot; &quot;PDT&quot;</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">                          <span class="co"># ex: mday = day of month</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="kw">class</span>(<span class="kw">unclass</span>(time_now1)) <span class="co"># list - this makes it possible to index and retrieve required information!</span></a></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># for example:</span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw">unclass</span>(time_now1)[<span class="dv">1</span>]    <span class="co"># index 1: second</span></a></code></pre></div>
+<pre><code>## $sec
+## [1] 53.12307</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">                         <span class="co"># index 2: minute</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">                         <span class="co"># index 3: hour</span></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">                         <span class="co"># index 4: mday = day of month</span></a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">                         <span class="co"># etc.. maximum is index 11. </span></a></code></pre></div>
+</div>
+</div>
+<div id="why-lubridate-is-more-efficient-than-regex-to-parse-dates" class="section level1">
+<h1>Why <code>lubridate()</code> is more efficient than RegEx to parse dates</h1>
+<p>There are several contents of dates that we can extract with <code>lubridate()</code> that we cannot easily do with RegEx (or do at all!).</p>
+<ul>
+<li><code>lubridate()</code> makes it possible to extract fractional seconds like we did above. If airtraffic controllers need to monitor flights’ paths to the details of milliseconds to prevent crashes, <code>lubridate()</code> can help.</li>
+<li><code>lubridate()</code> can easily identify:
+<ul>
+<li>a date’s corresponding day of the year (ex: 300 = 300th day of the year)</li>
+<li>a date’s corresponding day of the week (ex: 5 = 5th day of the week)</li>
+<li>if the date is observing day light savings time or not (<code>isdst</code> argument returns 1 if true)</li>
+<li>difference in duration between dates.</li>
+<li>Many of the above tasks are not possible or are tedious with RegEx.</li>
+</ul></li>
+</ul>
+<p><br> <br></p>
+</div>
+<div id="conversion-of-characterstring-format---datetime-objects-using-strptime." class="section level1">
+<h1><strong>Conversion of Character/String format -&gt; Date/Time objects using <code>strptime</code>. </strong></h1>
+<div id="strptime-converts-the-date-string-to-a-posixlt-posixt-object." class="section level4">
+<h4><code>strptime</code> converts the date string to a POSIXlt / POSIXt object.</h4>
+<p><strong>Note: This is different from “Date” object.</strong></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">datestring &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;January 15, 2012 10:40&quot;</span>, <span class="st">&quot;September 20, 2014 11:08&quot;</span>)</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">strptime_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">strptime</span>(<span class="dt">x=</span> datestring,</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">                       <span class="dt">format =</span> <span class="st">&quot;%B %d, %Y %H:%M&quot;</span>)</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">strptime_<span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-01-15 10:40:00 PST&quot; &quot;2014-09-20 11:08:00 PDT&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">class</span>(strptime_<span class="dv">1</span>)       <span class="co"># &quot;POSIXlt&quot; &quot;POSIXt&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">                        <span class="co"># run `?strptime` for details</span></a></code></pre></div>
+<ul>
+<li>Once we have converted characters into dates, we can do important calculations on them. can add, substract, compare dates.</li>
+<li>One thing to note is that “Date” and “POSIXlt” objects can’t be mixed. For example, it is not possible to subtract a “Date” object from a “POSIXlt” object.</li>
+</ul>
+<p><br> <br></p>
+</div>
+</div>
+<div id="operations-on-dates-and-times" class="section level1">
+<h1><strong>Operations on Dates and Times</strong></h1>
+<div id="as.date-converts-a-string-to-date-object." class="section level4">
+<h4><code>as.date</code> converts a string to “Date” object.</h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">class</span>(<span class="st">&quot;2012-09-24&quot;</span>)             <span class="co"># character</span></a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">date_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">strptime</span>(<span class="dt">x =</span> <span class="st">&quot;09 Jan 2012 11:20:44&quot;</span>, </a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">                   <span class="dt">format =</span> <span class="st">&quot;%d %b %Y %H:%M:%S&quot;</span>)</a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">date_<span class="dv">1</span>                          <span class="co"># &quot;2012-01-09 11:20:44 PST&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-01-09 11:20:44 PST&quot;</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">class</span>(date_<span class="dv">1</span>)                   <span class="co"># &quot;POSIXlt&quot; &quot;POSIXt&quot; </span></a></code></pre></div>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">date_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2012-09-24&quot;</span>)</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">date_<span class="dv">2</span>                          <span class="co"># &quot;2012-09-24&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-09-24&quot;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">class</span>(date_<span class="dv">2</span>)                   <span class="co"># Date</span></a></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">date_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(date_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">date_<span class="dv">2</span>                          <span class="co"># &quot;2012-09-24 UTC&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-09-24 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">class</span>(date_<span class="dv">2</span>)                   <span class="co"># &quot;POSIXlt&quot; &quot;POSIXt&quot; </span></a></code></pre></div>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">date_<span class="dv">2</span> <span class="op">-</span><span class="st"> </span>date_<span class="dv">1</span> <span class="co"># Time difference of 258.1939 days</span></a></code></pre></div>
+<pre><code>## Time difference of 258.1939 days</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">date_<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>date_<span class="dv">2</span> <span class="co"># Time difference of -258.1939 days</span></a></code></pre></div>
+<pre><code>## Time difference of -258.1939 days</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">date_<span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span>date_<span class="dv">2</span> <span class="co"># FALSE since date_1 comes before date_2. So date_1 &lt; date_2.</span></a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">date_<span class="dv">1</span> <span class="op">&lt;</span><span class="st"> </span>date_<span class="dv">2</span> <span class="co"># TRUE since date_2 comes after date_1. So, date_1 &lt; date_2.</span></a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="date-and-time-operators-also-keep-track-of" class="section level4">
+<h4>Date and Time operators also keep track of:</h4>
+<ul>
+<li>leap years</li>
+<li>leap seconds</li>
+<li>daylight savings</li>
+<li>and time zones!</li>
+</ul>
+<p>We can perform calculations on “Date” objects and “POSIXlt” / “POSIXct” objects.</p>
+<ol style="list-style-type: decimal">
+<li>Leap years</li>
+</ol>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">leapYearX &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-14&quot;</span>)</a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">leapYearY &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-03-01&quot;</span>)</a>
+<a class="sourceLine" id="cb70-3" data-line-number="3">leapYearY <span class="op">-</span><span class="st"> </span>leapYearX <span class="co"># Time difference of 16 days</span></a></code></pre></div>
+<pre><code>## Time difference of 16 days</code></pre>
+<p>Note: If the years were 2019 instead of 2020, the result is “Time difference of 15 days”.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Time difference at different time zones (examples include “GMT” and “America/Los Angeles”).</li>
+</ol>
+<ul>
+<li>We can easily find the differences between dates and times using <code>lubridate()</code>.</li>
+<li>We just need to make sure that the objects we are comparing are of the same data types.</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">halloweenX &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-10-31 1:00:00&quot;</span>) <span class="co"># by default, it uses the current timezone (in this case, PST)</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">halloweenY &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-10-31 6:00:00&quot;</span>,</a>
+<a class="sourceLine" id="cb72-3" data-line-number="3">                         <span class="dt">tz =</span> <span class="st">&quot;GMT&quot;</span>)</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="co"># the magnitude of the difference is only 2, </span></a>
+<a class="sourceLine" id="cb72-5" data-line-number="5"><span class="co"># since GMT is 7 hours ahead of PST during </span></a>
+<a class="sourceLine" id="cb72-6" data-line-number="6"><span class="co"># the Day Light Savings time. </span></a>
+<a class="sourceLine" id="cb72-7" data-line-number="7"><span class="co"># So, halloweenX in GMT would be 8:00:00 GMT </span></a>
+<a class="sourceLine" id="cb72-8" data-line-number="8"><span class="co"># instead of 1:00:00 PST.</span></a>
+<a class="sourceLine" id="cb72-9" data-line-number="9"><span class="co"># If both were in same timezone, then it would return 5.</span></a>
+<a class="sourceLine" id="cb72-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb72-11" data-line-number="11">halloweenY <span class="op">-</span><span class="st"> </span>halloweenX      <span class="co"># Time difference of -2 hours</span></a></code></pre></div>
+<pre><code>## Time difference of -2 hours</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">halloweenX <span class="op">-</span><span class="st"> </span>halloweenY      <span class="co"># Time difference of 2 hours</span></a></code></pre></div>
+<pre><code>## Time difference of 2 hours</code></pre>
+<p>We could do some calculations like these without lubricate().</p>
+<ul>
+<li><code>(2019-08-09) - (2019-08-02)</code> : returns -7 without units.</li>
+<li><code>(2019-08-09 11:02:33) - (2019-08-02 02:19:33)</code> : returns an error</li>
+<li><code>lubricate()</code> enables us to perform these calculations easily.</li>
+</ul>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">halloweenA &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-10-31 6:00:00&quot;</span>,</a>
+<a class="sourceLine" id="cb76-2" data-line-number="2">                         <span class="dt">tz =</span> <span class="st">&quot;GMT&quot;</span>)</a>
+<a class="sourceLine" id="cb76-3" data-line-number="3"><span class="kw">class</span>(halloweenA) <span class="co"># &quot;POSIXct&quot; &quot;POSIXt&quot; </span></a></code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">halloweenB &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-10-31 1:00:00&quot;</span>,</a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">                         <span class="dt">tz =</span> <span class="st">&quot;America/Los_Angeles&quot;</span>)</a>
+<a class="sourceLine" id="cb78-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb78-4" data-line-number="4">halloweenA <span class="op">-</span><span class="st"> </span>halloweenB      <span class="co"># Time difference of -2 hours</span></a></code></pre></div>
+<pre><code>## Time difference of -2 hours</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">halloweenB <span class="op">-</span><span class="st"> </span>halloweenA      <span class="co"># Time difference of 2 hours</span></a></code></pre></div>
+<pre><code>## Time difference of 2 hours</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">halloweenC &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-10-31 6:00:51&quot;</span>)</a></code></pre></div>
+</div>
+<div id="we-can-also-get-second-day-month-week-day-of-the-week-day-of-the-year-of-posixct-and-posixlt-objects." class="section level4">
+<h4>We can also get second, day, month, week, day of the week, day of the year of POSIXct and POSIXlt objects.</h4>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">second</span>(<span class="dt">x =</span> halloweenC) <span class="co"># 51</span></a></code></pre></div>
+<pre><code>## [1] 51</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">day</span>(halloweenC)        <span class="co"># 31</span></a></code></pre></div>
+<pre><code>## [1] 31</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">month</span>(halloweenC)      <span class="co"># 10</span></a></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">month</span>(halloweenC, </a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">      <span class="dt">label =</span> <span class="ot">TRUE</span>)    <span class="co"># Oct (returned text form of 10)</span></a></code></pre></div>
+<pre><code>## [1] Oct
+## 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">wday</span>(halloweenC)       <span class="co"># 5  - which means Thursday. 1 means Sunday.</span></a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">wday</span>(halloweenC, </a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">     <span class="dt">label =</span> <span class="ot">TRUE</span>)     <span class="co"># Thu (returned text form of 5)  </span></a></code></pre></div>
+<pre><code>## [1] Thu
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">yday</span>(halloweenC)       <span class="co"># 304 means 304th day of the year 2019</span></a></code></pre></div>
+<pre><code>## [1] 304</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">week</span>(halloweenC)       <span class="co"># 44 means 44th week of year</span></a></code></pre></div>
+<pre><code>## [1] 44</code></pre>
+</div>
+<div id="we-can-also-express-the-current-time-or-a-posixltposixct-time-object-in-another-time-zone" class="section level4">
+<h4>We can also express the current time (or a POSIXlt/POSIXct time object) in another time zone</h4>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">with_tz</span>(<span class="dt">time =</span> <span class="kw">Sys.time</span>(),</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2">        <span class="dt">tzone =</span> <span class="st">&quot;America/New_York&quot;</span> )</a></code></pre></div>
+<pre><code>## [1] &quot;2020-10-09 23:29:53 EDT&quot;</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="co"># run `??tzone` for documentation</span></a></code></pre></div>
+</div>
+</div>
+<div id="parse_date_time-parses-date" class="section level1">
+<h1><code>parse_date_time()</code> parses date</h1>
+<p><code>parse_date_time()</code> makes its best guess as to what the time is and outputs in the standard ISO format (“YYYY-mm-dd HH:MM:SS UTC” time).</p>
+<ul>
+<li><code>orders =</code> argument enables us to list all possible date time formats for R to parse all sorts of dates and times correctly.</li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1">lubridate<span class="op">::</span><span class="kw">parse_date_time</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;2020-01-02 11:00:02&quot;</span>, <span class="st">&quot;19-02-2011&quot;</span>, <span class="st">&quot;02-19-2003&quot;</span>, <span class="st">&quot;931406&quot;</span>, <span class="st">&quot;091406&quot;</span>, <span class="st">&quot;20112003&quot;</span>, <span class="st">&quot;Oct 1, 2009&quot;</span>, <span class="st">&quot;Nov 19 2012&quot;</span>, <span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Wed&quot;</span>), </a>
+<a class="sourceLine" id="cb102-2" data-line-number="2">                           <span class="dt">orders =</span> <span class="kw">c</span>(<span class="st">&quot;dmy&quot;</span>, <span class="st">&quot;dym&quot;</span>, </a>
+<a class="sourceLine" id="cb102-3" data-line-number="3">                                      <span class="st">&quot;ymd&quot;</span>, <span class="st">&quot;ydm&quot;</span>,</a>
+<a class="sourceLine" id="cb102-4" data-line-number="4">                                      <span class="st">&quot;mdy&quot;</span>, <span class="st">&quot;myd&quot;</span>,</a>
+<a class="sourceLine" id="cb102-5" data-line-number="5">                                      <span class="st">&quot;%m%d%Y&quot;</span>, <span class="st">&quot;%Y%m%d %H%M%S&quot;</span>,</a>
+<a class="sourceLine" id="cb102-6" data-line-number="6">                                      <span class="st">&quot;%b&quot;</span>, <span class="st">&quot;%a&quot;</span>, <span class="st">&quot;%T&quot;</span>, <span class="st">&quot;%d%b%Y&quot;</span>))</a></code></pre></div>
+<pre><code>##  [1] &quot;2020-01-02 11:00:02 UTC&quot; &quot;2011-02-19 00:00:00 UTC&quot;
+##  [3] &quot;2003-02-19 00:00:00 UTC&quot; &quot;1993-06-14 00:00:00 UTC&quot;
+##  [5] &quot;2006-09-14 00:00:00 UTC&quot; &quot;2003-11-20 00:00:00 UTC&quot;
+##  [7] &quot;2009-10-01 00:00:00 UTC&quot; &quot;2019-12-20 00:00:00 UTC&quot;
+##  [9] &quot;2020-10-09 00:00:00 UTC&quot; &quot;2020-10-09 00:00:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">orders =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dmy&quot;</span>, <span class="st">&quot;dym&quot;</span>, <span class="st">&quot;ymd&quot;</span>, <span class="st">&quot;ydm&quot;</span>,<span class="st">&quot;mdy&quot;</span>, <span class="st">&quot;myd&quot;</span>, <span class="st">&quot;%m%d%Y&quot;</span>, <span class="st">&quot;%Y%m%d %H%M%S&quot;</span>, <span class="st">&quot;%b&quot;</span>, <span class="st">&quot;%a&quot;</span>, <span class="st">&quot;%T&quot;</span>, <span class="st">&quot;%d%b%Y&quot;</span>)</a></code></pre></div>
+<p>We can extract month, year, etc using the right functions as below:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">bdt1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Variable =</span> <span class="kw">c</span>(<span class="st">&quot;Person&quot;</span>,<span class="st">&quot;BirthDate/Time&quot;</span>), </a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">           <span class="dt">Person1 =</span> <span class="kw">c</span>(<span class="st">&quot;paul&quot;</span>, <span class="st">&quot;090594559103&quot;</span>),</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">           <span class="dt">Person2 =</span> <span class="kw">c</span>(<span class="st">&quot;carrie&quot;</span>, <span class="st">&quot;2009-05-10&quot;</span>),</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4">           <span class="dt">Person3 =</span> <span class="kw">c</span>(<span class="st">&quot;susan&quot;</span>, <span class="st">&quot;08/06/04&quot;</span>))</a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">bdt1</a></code></pre></div>
+<pre><code>##         Variable      Person1    Person2  Person3
+## 1         Person         paul     carrie    susan
+## 2 BirthDate/Time 090594559103 2009-05-10 08/06/04</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">bdt1<span class="op">$</span>Variable <span class="op">==</span><span class="st"> &quot;BirthDate/Time&quot;</span></a></code></pre></div>
+<pre><code>## [1] FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">times1 &lt;-<span class="st"> </span>nycflights13<span class="op">::</span>flights<span class="op">$</span>time_hour[<span class="dv">15000</span><span class="op">:</span><span class="dv">15010</span>]</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="kw">month</span>(times1)</a></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">year</span>(times1)</a></code></pre></div>
+<pre><code>##  [1] 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">wday</span>(times1)</a></code></pre></div>
+<pre><code>##  [1] 6 6 6 6 6 6 6 6 6 6 6</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">yday</span>(times1)</a></code></pre></div>
+<pre><code>##  [1] 18 18 18 18 18 18 18 18 18 18 18</code></pre>
+<p>and then we can add those values to a new column in a dataframe, that can be created and named as we wish. this will help with better analysis of:</p>
+<ul>
+<li>when there is more likely to be more traffic</li>
+<li>what times during the day are shoppers more likely to shop in store vs. online</li>
+<li>what times am I more likely to win a lottery ticket?</li>
+<li>what months are safer to drive to a certain city?</li>
+<li>and much more!</li>
+</ul>
+<p>Basically, character strings of dates can be converted to Date/Time classes using the <code>strptime</code>, <code>as.Date</code>, <code>as.POSIXlt</code>, or <code>asPOSIXct</code> functions.</p>
+<p>Side note: Plots also change their formatting when using Date/Time objects for graphing. Compare with regular text!</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># To find the current time zone in your location?</span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2">x =<span class="st"> </span><span class="kw">Sys.timezone</span>()</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3">x</a></code></pre></div>
+<pre><code>## [1] &quot;America/Los_Angeles&quot;</code></pre>
+</div>
+<div id="intervals" class="section level1">
+<h1>Intervals</h1>
+<div id="intervals-are-separate-objects-in-r." class="section level4">
+<h4><strong>Intervals are separate objects in R.</strong></h4>
+<ul>
+<li>Knowing how to work with intervals is important when studying weather patterns and how they change over seasons from year to year.</li>
+<li>It is also important when considering which events are co-occuring, so that there will not be overlaps for important events, such as meetings or consecutive flights.</li>
+</ul>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">interval</span>(halloweenA, halloweenB)</a></code></pre></div>
+<pre><code>## [1] 2019-10-31 06:00:00 GMT--2019-10-31 08:00:00 GMT</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">int.halloween<span class="fl">.1</span> &lt;-<span class="st"> </span>halloweenB <span class="op">%--%</span><span class="st"> </span>halloweenA</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">int.halloween<span class="fl">.2</span> &lt;-<span class="st"> </span>halloweenY <span class="op">%--%</span><span class="st"> </span>halloweenX <span class="co">#automatically converts to GMT for both!</span></a>
+<a class="sourceLine" id="cb121-3" data-line-number="3"><span class="kw">class</span>(halloweenA <span class="op">%--%</span><span class="st"> </span>halloweenB) <span class="co"># interval</span></a></code></pre></div>
+<pre><code>## [1] &quot;Interval&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;lubridate&quot;</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">length</span>(halloweenA <span class="op">%--%</span><span class="st"> </span>halloweenB) <span class="co"># 1</span></a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">lubridate<span class="op">::</span><span class="kw">as.difftime</span>(halloweenY <span class="op">%--%</span><span class="st"> </span>halloweenX)</a></code></pre></div>
+<pre><code>## Time difference of 7200 secs</code></pre>
+</div>
+<div id="we-can-also-perform-functions-on-intervals" class="section level4">
+<h4>We can also perform functions on intervals!</h4>
+<ul>
+<li>such as “do 2 intervals overlap?”</li>
+</ul>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">int_overlaps</span>(int.halloween<span class="fl">.1</span>, int.halloween<span class="fl">.2</span>)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ul>
+<li>can also retrieve start and end times of intervals</li>
+</ul>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">int_start</span>(<span class="dt">int =</span> int.halloween<span class="fl">.1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-10-31 01:00:00 PDT&quot;</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="co">#&quot;2019-10-31 01:00:00 PDT&quot;</span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="kw">int_end</span>(<span class="dt">int =</span> int.halloween<span class="fl">.2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-10-31 08:00:00 GMT&quot;</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co">#&quot;2019-10-31 08:00:00 GMT&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">christmas2018 &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2018-12-25 6:00:00 PDT&quot;</span>)</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="co"># automatically changes to PST!</span></a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb134-4" data-line-number="4">christmas2019 &lt;-<span class="st"> </span><span class="kw">as.POSIXct</span>(<span class="dt">x =</span> <span class="st">&quot;2019-12-25 8:00:00 America/Los Angeles&quot;</span>) </a>
+<a class="sourceLine" id="cb134-5" data-line-number="5"><span class="co"># automatically changes to PST!</span></a>
+<a class="sourceLine" id="cb134-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb134-7" data-line-number="7"><span class="co"># creating a Christmas interval object</span></a>
+<a class="sourceLine" id="cb134-8" data-line-number="8">interval.christmas &lt;-<span class="st"> </span><span class="kw">interval</span>(christmas2018, christmas2019)</a>
+<a class="sourceLine" id="cb134-9" data-line-number="9">interval.christmas <span class="co"># 2018-12-25 06:00:00 PST--2019-12-25 08:00:00 PST</span></a></code></pre></div>
+<pre><code>## [1] 2018-12-25 06:00:00 PST--2019-12-25 08:00:00 PST</code></pre>
+<p>We can find how many seconds are in “X” number of minutes / hours / days / weeks / months / years.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">ddays</span>(<span class="dv">1</span>) <span class="co"># &quot;86400s (~1 days)&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;86400s (~1 days)&quot;</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">dweeks</span>(<span class="dv">1</span>) <span class="co"># &quot;604800s (~1 weeks)&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;604800s (~1 weeks)&quot;</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">dmonths</span>(<span class="dv">1</span>) <span class="co"># &quot;2629800s (~4.35 weeks)&quot; (months are too variable. days can be 30, 31, 28 or 29. this is why measures like days and weeks also are only approximate measures.)</span></a></code></pre></div>
+<pre><code>## [1] &quot;2629800s (~4.35 weeks)&quot;</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="kw">dyears</span>(<span class="dv">1</span>) <span class="co"># &quot;31557600s (~1 years)&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;31557600s (~1 years)&quot;</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="co"># interval.christmas / ddays(1) #  365.0833</span></a></code></pre></div>
+<p>Moreover, the package makes it easier to split a column that contains both a date and time in a dataframe into separate columns for day, month, second, etc. - If street traffic analysts are evaluating the traffic lights and the corresponding number of accidents in the area, they would want to get details even up to a second to check if they need to increase the number of seconds that a red light is displayed or decrease the number of time a green light is displayed. - If a person is tracking their mood throughout a day, they would probably want hourly data.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">class</span>(<span class="st">&quot;2012-09-24&quot;</span>)             <span class="co"># character</span></a></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1">date_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">strptime</span>(<span class="dt">x =</span> <span class="st">&quot;09 Jan 2012 11:20:44&quot;</span>, </a>
+<a class="sourceLine" id="cb147-2" data-line-number="2">                   <span class="dt">format =</span> <span class="st">&quot;%d %b %Y %H:%M:%S&quot;</span>)</a>
+<a class="sourceLine" id="cb147-3" data-line-number="3">date_<span class="dv">1</span>                          <span class="co"># &quot;2012-01-09 11:20:44 PST&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-01-09 11:20:44 PST&quot;</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">class</span>(date_<span class="dv">1</span>)                   <span class="co"># &quot;POSIXlt&quot; &quot;POSIXt&quot; </span></a></code></pre></div>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">date_<span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-01-09 11:20:44 PST&quot;</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1">date_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2012-09-24&quot;</span>)</a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">date_<span class="dv">2</span>                          <span class="co"># &quot;2012-09-24&quot;</span></a></code></pre></div>
+<pre><code>## [1] &quot;2012-09-24&quot;</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">class</span>(date_<span class="dv">2</span>)                   <span class="co"># Date</span></a></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p><br> <br></p>
+</div>
+</div>
+<div id="potential-real-life-applications-of-lubridate" class="section level1">
+<h1>Potential Real Life Applications of <code>lubridate()</code>:</h1>
+<ol style="list-style-type: decimal">
+<li>Use of <code>lubridate()</code>’s timezone functionalities in airlines booking websites</li>
+</ol>
+<ul>
+<li>customers can the times at which they will leave from departure and arrive at destination in any time zone that they wish.
+<ul>
+<li>for example, if a passenger wants to travel from NYC to Auckland, <code>lubridate()</code> will enable the flight booking program to enable the passenger to see when they will arrive at Auckland at both the Eastern Time Zone (EST) as well as Auckland Time Zone. This can help the passengers decide how they will spend time at the layover airport, or even decide when to sleep on the airplane so that they can minimize jet lag!</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Use of <code>lubridate()</code>’s interval functionalities in calendar apps</li>
+</ol>
+<ul>
+<li>Users can be warned of overlapping events with the help of the <code>int_overlaps()</code> functions.
+<ul>
+<li>For example, if a user wants to schedule a meeting with a client at 2:30pm, but a meeting from 1:30pm rolls over till 3:30pm, they would want the app to warn them before they schedule another meeting for 2:30pm.</li>
+</ul></li>
+</ul>
+</div>
+<div id="final-words" class="section level1">
+<h1>Final Words</h1>
+<p>Overall, I find <code>lubridate()</code> to be very useful and applicable to real-life situations. I find dates, especially when presented as strings, to be really hard to work with. Regular expressions are great to extract dates, but when it comes to details of dates, <code>lubridate()</code> can be a better choice! From working with timezones and durations to simply extracting months out of a list of dates, <code>lubridate()</code> can save the day!</p>
+</div>
+<div id="credits" class="section level1">
+<h1>Credits</h1>
+<p>I extensively researched about <code>lubridate()</code> from the following sources. I highly recommend reading them, because I learned so much that I could not have easily found in the RDocumentation.</p>
+<p>Sources List</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.fabianheld.com/lubridate/" class="uri">https://www.fabianheld.com/lubridate/</a></li>
+<li><a href="https://www.youtube.com/watch?v=8HENCYXwZoU" class="uri">https://www.youtube.com/watch?v=8HENCYXwZoU</a> (Thank you Prof. Peng!)</li>
+<li><a href="https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf" class="uri">https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf</a></li>
+</ol>
+<p>Thank you to Dr. Lecy who gave me an opportunity to write about an awesome package!</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

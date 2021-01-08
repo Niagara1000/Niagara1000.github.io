@@ -4,13 +4,12 @@ title: About Archana
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Archana. I have the following qualities:
+Hi there, my name is Archana. I possess the following qualities:
 
-- I have long, straight brownish-black hair with a hint of curls.
-- I'm loyal to my family and friends.
-- I'm an artsy and crafty person.
+- I have long, straight brownish-black hair.
+- I love trying out DIY craft projects.
 - Boba is my favorite companion on a hot summer day.
-- I love to workout and sing!
+- Finally, I love to workout and sing!
 
 
 What else do you need?

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Flake it till you make it
-subtitle: Excerpt from Soulshaping by Jeff Brown
+title: My interests
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
@@ -9,8 +8,6 @@ readtime: true
 tags: [books, test]
 ---
 
-Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?
+From the time I was a kid, I have been really interested in creating handmade items. My top favorite hobbies are DIY (do-it-yourself) home decor, origami, and crochet! Creating (and DIY'ing) have always been and always will be interests and passions of mine. Adding my own personality and unique twist to items that I craft gives me immense joy. For example, I have been learning crochet recently. After seeing many YouTube tutorials, I experimented combining various stitches using various colors of yarn to see what can be created out of them. I learn best by doing. When it comes to crocheting, that is exactly how one can learn the art. 
 
-..
-
-A soulful notion of success rests on the actualization of our innate image. Success is simply the completion of a soul step, however unsightly it may be. We have finished what we started when the lesson is learned. What a fear-based culture calls a wonderful opportunity may be fruitless and misguided for the soul. Staying in a passionless relationship may satisfy our need for comfort, but it may stifle the soul. Becoming a famous lawyer is only worthwhile if the soul demands it. It is an essential failure if you are called to be a monastic this time around. If you need to explore and abandon ten careers in order to stretch your soul toward its innate image, then so be it. **BAKE** it till you make it.
+I also have a lot of non-artistic interests. I work out few times a week. I enjoy listening to pop music and Korean Pop Music (also known as K-pop). I enjoy watching TV, talking to friends, and singing. I am also a lover of boba, puns, and memes! 

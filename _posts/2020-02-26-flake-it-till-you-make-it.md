@@ -1,9 +1,9 @@
 ---
 layout: post
 title: My interests
-cover-img: /assets/img/path.jpg
+cover-img: /assets/img/collage.jpg
 thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
+share-img: /assets/img/collage.jpg
 readtime: true
 tags: [books, test]
 ---

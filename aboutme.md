@@ -1,21 +1,19 @@
 ---
 layout: page
 title: About Archana
-subtitle: Why you'd want to go on a date with me
+subtitle: Pursuing M.S. in Data Analytics, Arizona State University
 ---
 
-Hi there, my name is Archana. I possess the following qualities:
+Hi there, my name is Archana. Here is a brief summary of who I am.
 
-- I have long, straight brownish-black hair.
-- I love trying out DIY craft projects.
-- Boba is my favorite companion on a hot summer day.
-- Finally, I love to workout and sing!
+- I am interested in making a difference through the use of Data Science and Analytics.
+- I am fascinated by the way Machine Learning can automate tasks and improve efficiency as well.
+- I have used NLP to perform analysis of stock sentiments at [Sentimenta.org](http://sentimenta.org/).
+- I am skilled in Python, R, and SQL as well as Tableau, Github, RStudio, DataBricks, and more.
 
+### My education
 
-What else do you need?
+I studied Psychology during my undergraduate education at UCSD. 
+I am currently pursuing a Master's Degree in Data Analytics at ASU.
 
-### My story
-
-I studied Psychology during my undergraduate education. I am currently pursuing a Master's Degree in Data Analytics and Program Evaluation.
-
-Follow me on [Github](https://github.com/Niagara1000) to learn more about me. Let's go!
+Follow me on [Github](https://github.com/Niagara1000) to see more. Let's go!

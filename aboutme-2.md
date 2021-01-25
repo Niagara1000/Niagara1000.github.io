@@ -1,39 +1,61 @@
 ---
 layout: page
 title: More About Me
-subtitle: A list of my projects, interests, and some useful links
+subtitle: Pursuing M.S. in Data Analytics
 ---
 ###### Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
 
-## My website
+## My Projects
 
 * [Sentimenta.org](http://sentimenta.org/) 
-My current project focused on determining stock sentiments. It is currently a work-in-progress.
 
-## Places I want to travel to
+My project focused on determining stock sentiments using Natural Language Processing. Sentimenta is a website focused on helping users decide which companies to invest in.
 
-* [Sydney](https://en.wikipedia.org/wiki/Sydney)
+I used NLP and extracted news articles from various news outlets, extracted company names and the headlines in which they appeared, and finally calculated companies’ overall sentiments (positive/negative) based on various keywords found in the headlines.
 
-* [Dubai](https://en.wikipedia.org/wiki/Dubai)
+I designed layout of the website for ease of viewing. I am regularly improving the user interface and accuracy of data.
 
-## My Favorite Learning Tools for Coding and Art
+Software/Tools used: Python, MySQL, Linux, Apache, AWS EC2 and S3, Route 53, Jupyter Notebook, and NLTK.
 
-* [StackOverflow](https://www.stackoverflow.com)
-My number one go-to site when I need coding insights.
+* Tempe Accidents Dashboard
 
-* [HackerRank](https://www.hackerrank.com)
-A place to practice coding and have fun with it.
+Created a dashboard to visualize Tempe accidents given different inputs of time, day, month, year, weather condition, direction, 
+and more. https://arch-1000.shinyapps.io/submittedVersion-Gnal-project-dashboard/
 
-* [SketchBook](https://www.sketchbook.com)
-You can create art from the comfort of your device using SketchBook.
+<hr><hr>
 
-* [Subtle Patterns](http://subtlepatterns.com/)
-Use Subtle Patterns to find the best background designs for your website.
+# Skills
 
+## Programming Languages
 
-[](https://media.tenor.com/images/b182bb9593bb00065ca552f06f7d8f98/tenor.png)
+* Python
+* R
+* SQL, MySQL
+* Scala
+* HTML
 
+## Tools
 
+* Tableau
+* RStudio
+* RShiny
+* Jupyter Notebook
+* DataBricks
+* Github
+* Git
+* AWS EC2 and S3
+* Route 53
 
+## Relevant Coursework
+
+* Big Data Analytics
+* Data Wrangling
+* Data Analysis
+* Data Visualization
+* Statistics and Probability
+* Regression Topics
+* Program Evaluation
+
+<hr><hr>
 
 

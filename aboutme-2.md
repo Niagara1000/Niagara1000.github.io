@@ -20,7 +20,9 @@ I used NLP and extracted news articles from various news outlets, extracted comp
 I designed layout of the website for ease of viewing. I am regularly improving the user interface and accuracy of data.
 
 Software/Tools used: Python, MySQL, Linux, Apache, AWS EC2 and S3, Route 53, Jupyter Notebook, and NLTK.
+
 <br>
+
 * [Tempe Accidents Dashboard](https://arch-1000.shinyapps.io/submittedVersion-final-project-dashboard/)
 
 Created a dashboard to visualize Tempe accidents given different inputs of time, day, month, year, weather condition, direction, 

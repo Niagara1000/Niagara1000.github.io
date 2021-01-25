@@ -5,7 +5,7 @@ subtitle: Pursuing M.S. in Data Analytics
 ---
 => Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
 
-<hr><hr>
+<hr><hr><br>
 
 ## My Projects
 
@@ -20,7 +20,7 @@ I used NLP and extracted news articles from various news outlets, extracted comp
 I designed layout of the website for ease of viewing. I am regularly improving the user interface and accuracy of data.
 
 Software/Tools used: Python, MySQL, Linux, Apache, AWS EC2 and S3, Route 53, Jupyter Notebook, and NLTK.
-
+<br>
 * [Tempe Accidents Dashboard](https://arch-1000.shinyapps.io/submittedVersion-final-project-dashboard/)
 
 Created a dashboard to visualize Tempe accidents given different inputs of time, day, month, year, weather condition, direction, 
@@ -29,7 +29,7 @@ and more.
 <hr><hr>
 
 # Skills
-
+<br>
 ## Programming Languages
 
 * Python

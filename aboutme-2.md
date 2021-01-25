@@ -3,9 +3,13 @@ layout: page
 title: More About Me
 subtitle: Pursuing M.S. in Data Analytics
 ---
-###### Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
+=> Please note that all links will open in the current tab/window. `Right-click` (or `Command + click` for Mac users) to open links in a **_new_** tab/window.
+
+<hr><hr>
 
 ## My Projects
+
+<br>
 
 * [Sentimenta.org](http://sentimenta.org/) 
 
@@ -17,10 +21,10 @@ I designed layout of the website for ease of viewing. I am regularly improving t
 
 Software/Tools used: Python, MySQL, Linux, Apache, AWS EC2 and S3, Route 53, Jupyter Notebook, and NLTK.
 
-* Tempe Accidents Dashboard
+* [Tempe Accidents Dashboard](https://arch-1000.shinyapps.io/submittedVersion-final-project-dashboard/)
 
 Created a dashboard to visualize Tempe accidents given different inputs of time, day, month, year, weather condition, direction, 
-and more. https://arch-1000.shinyapps.io/submittedVersion-Gnal-project-dashboard/
+and more. 
 
 <hr><hr>
 
@@ -57,5 +61,3 @@ and more. https://arch-1000.shinyapps.io/submittedVersion-Gnal-project-dashboard
 * Program Evaluation
 
 <hr><hr>
-
-

@@ -4,7 +4,7 @@ title: Sample blog post title
 subtitle: Subtitle
 gh-repo: Niagara1000/Niagara1000.github.io
 gh-badge: [star, fork, follow]
-last-updated: "`r format(Sys.time(), '%B %d, %Y')`"
+last-updated: `r format(Sys.time(), '%B %d, %Y')`
 tags: [test]
 readtime: true
 comments: true

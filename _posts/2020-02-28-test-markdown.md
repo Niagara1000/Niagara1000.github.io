@@ -59,7 +59,8 @@ var foo = function(x) {
 foo(3)
 {% endhighlight %}
 
-<br><hr>
+<br>
+<hr>
 
 ## Boxes
 You can add notification, warning and error boxes like this:

@@ -48,12 +48,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### First, we need to import necessary packages. After many revisions, it was clear that the following packages have to be installed and opened into RStudio.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(quanteda)
 library(purrr)
 library(tidyverse)
 library(lubridate)
-#library(nycflights13)
 ```
 
 <br>

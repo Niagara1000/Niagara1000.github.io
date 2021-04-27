@@ -16,7 +16,7 @@ This is a demo post to show you how to write blog posts with markdown.  I strong
 
 ## Here is a secondary heading
 
-Here's a useless table:
+Here's a table:
 
 | Number | Next number | Previous number |
 | :------ |:--- | :--- |
@@ -32,7 +32,7 @@ How about a yummy crepe?
 
 It can also be centered!
 
-![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg){: .mx-auto.d-block :}
+![Crepe](https://s3-media3.fl.yelpcdn.com/bphoto/cQ1Yoa75m2yUFFbY2xwuqw/348s.jpg) {: .mx-auto.d-block :}
 
 Here's a code chunk:
 

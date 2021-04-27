@@ -1,12 +1,13 @@
 ---
 title: "Lubridate_CodeThrough"
-author: "Archana Ramamoorthy"
+author: "Archana R."
 date: "10/8/2020"
 output: 
   html_document:
-    df_print: paged
-    theme: darkly
-    highlight: haddock
+      toc: true
+      toc_float: true 
+      df_print: paged
+      highlight: haddock
 ---
 
 ```{r setup, include=FALSE}

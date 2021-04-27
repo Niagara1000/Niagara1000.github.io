@@ -2,7 +2,7 @@
 layout: post
 title: My interests
 cover-img: /assets/img/collage.jpg
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: /assets/img/Mushroom-Super-Mario.jpeg
 share-img: /assets/img/collage.jpg
 readtime: true
 tags: [books, test]

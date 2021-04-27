@@ -4,9 +4,13 @@ title: My interests
 cover-img: /assets/img/collage.jpg
 thumbnail-img: /assets/img/Mushroom-Super-Mario.jpeg
 share-img: /assets/img/collage.jpg
-readtime: true
+gh-repo: Niagara1000/Niagara1000.github.io
+gh-badge: [star, fork, follow]
+last-updated: `r format(Sys.time(), '%B %d, %Y')`
 tags: [books, test]
+readtime: true
 ---
+
 
 From the time I was a kid, I have been really interested in creating handmade items. My top favorite hobbies are DIY (do-it-yourself) home decor, origami, and crochet! Creating (and DIY'ing) have always been and always will be interests and passions of mine. Adding my own personality and unique twist to items that I craft gives me immense joy. For example, I have been learning crochet recently. After seeing many YouTube tutorials, I experimented combining various stitches using various colors of yarn to see what can be created out of them. I learn best by doing. When it comes to crocheting, that is exactly how one can learn the art. 
 

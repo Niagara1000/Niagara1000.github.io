@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My interests
-cover-img: /assets/img/collage.jpg
+cover-img: /assets/img/peachtoblue.jpg
 thumbnail-img: /assets/img/Mushroom-Super-Mario.jpeg
 share-img: /assets/img/collage.jpg
 date: "Originally Published - February 26, 2020 <br> Last Updated - `r format(Sys.time(), '%d %B, %Y')`"

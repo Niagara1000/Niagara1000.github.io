@@ -2,6 +2,7 @@
 layout: post
 title: Sample blog post title
 subtitle: Subtitle
+thumbnail-img: /assets/img/mochi-77c69d.jpg
 gh-repo: Niagara1000/Niagara1000.github.io
 gh-badge: [star, fork, follow]
 last-updated: `r format(Sys.time(), '%B %d, %Y')`

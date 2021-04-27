@@ -3,6 +3,7 @@ layout: post
 title: Sample blog post title
 subtitle: Subtitle
 thumbnail-img: /assets/img/mochi-77c69d.jpg
+page-img: "/assets/img/peachtoblue.jpg"
 tags: [test]
 readtime: true
 comments: true

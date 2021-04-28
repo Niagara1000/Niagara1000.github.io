@@ -3,7 +3,7 @@ layout: post
 title: My interests
 cover-img: /assets/img/peachtoblue.jpg
 thumbnail-img: /assets/img/Mushroom-Super-Mario.jpeg
-page-img: /assets/img/bluetiles.jpg
+page-img: /assets/img/peachtoblue.jpg
 share-img: /assets/img/collage.jpg
 date: "Originally Published - February 26, 2020 <br> Last Updated - `r format(Sys.time(), '%d %B, %Y')`"
 readtime: true
